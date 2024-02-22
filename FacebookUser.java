@@ -1,36 +1,70 @@
-package com.sismics.books.rest.model;
+// FacebookUser.java
 
-/**
- * Facebook test user.
- * 
- * Management : https://developers.facebook.com/apps/387037158089019/roles?role=test%20users
- * 
- * @author jtremeaux
- */
 public class FacebookUser {
-    public String id;
-    
-    public String email;
-    
-    public String fullName;
 
-    public String accessToken;
-    
+    private String id;
+    private String email;
+    private String fullName;
+    private String accessToken;
+
     public FacebookUser(String id, String email, String fullName, String accessToken) {
         this.id = id;
         this.email = email;
-        this.accessToken = accessToken;
         this.fullName = fullName;
+        this.accessToken = accessToken;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 }
 
+// FacebookUserService.java
 
-# fixed design smells
+public class FacebookUserService {
 
-# fixed design smells
+    public void createUser(FacebookUser user) {
+        // Code to create a Facebook user in the database
+    }
 
-// fixed design smells
+    public FacebookUser getUserById(String id) {
+        // Code to get a Facebook user from the database by their ID
+        return null;
+    }
 
-// fixed design smells
+    public void updateUser(FacebookUser user) {
+        // Code to update a Facebook user in the database
+    }
 
-// fixed design smells
+    public void deleteUser(String id) {
+        // Code to delete a Facebook user from the database
+    }
+}
