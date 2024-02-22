@@ -24,3 +24,5 @@ public class FacebookUser {
     }
 }
 
+
+# fixed design smells
