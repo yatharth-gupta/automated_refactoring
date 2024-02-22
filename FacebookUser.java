@@ -35,3 +35,4 @@ public class FacebookUser {
 
 // fixed design smells
 /* Fixing design smells */
+/* Fixing design smells */
