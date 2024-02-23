@@ -3,6 +3,7 @@ name: Weekly Design Smells Check
 on:
   schedule:
     - cron: '51 21 * * 5'  # Run every Sunday at midnight UTC
+  workflow_dispatch: # manual trigger
 
 jobs:
   run-script:
