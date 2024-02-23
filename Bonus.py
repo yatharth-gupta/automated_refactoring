@@ -154,7 +154,7 @@ def delete_repo(repo_name):
 # Main function
 def main():
 
-    repo_url = "https://github.com/yatharth-gupta/automated_refactoring"
+    repo_url = "https://github.com/ManujGarggit/test"
     repo_name = "automated_refactoring"
     branch_name = "fix_design_smells-1"
     pr_title = "Fix design smells"
