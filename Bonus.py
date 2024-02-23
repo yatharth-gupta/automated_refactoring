@@ -134,7 +134,7 @@ def design_smells(repo_name, branch_name,g,owner_repo):
             java = "java\n"
             refactored_code = refactored_code[len(java):]
 
-            comment = response.text.split('```')[0] +  response.text.split('```')[2]
+            comment = response.text.split('```')[0] + response.text.split('```')[2]
 
             # replace the original code with the refactored code
             f.seek(0)

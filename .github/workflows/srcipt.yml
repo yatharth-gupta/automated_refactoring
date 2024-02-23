@@ -24,6 +24,11 @@ jobs:
         pip install -q -U google-generativeai
         pip install PyGithub
 
+    - name: Configure Git
+      run: |
+        git config user.email "guptayatharth1@gmail.com"
+        git config user.name "yatharth-gupta"
+
     - name: Run Python Script
       run: python Bonus.py  # Specify the correct filename if different
       env:
