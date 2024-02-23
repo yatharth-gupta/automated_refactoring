@@ -89,6 +89,13 @@ def create_pull_request(repo_name, branch_name, pr_title, pr_body,g,owner_repo):
         # Get the repository
         repo = g.get_repo(owner_repo)
 
+        #check if pull request already exists, delete it
+        pulls = list(repo.get_pulls(state='open', base='main'))
+        for pull in pulls:
+            if pull.head.ref == branch_name:
+                pull.edit(state='closed')
+                break
+                
         # Create a pull request
         pull_request = repo.create_pull(title=pr_title, body=pr_body, head=branch_name, base='main')
         print("Pull request created:", pull_request.html_url)
