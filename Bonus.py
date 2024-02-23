@@ -163,11 +163,14 @@ def main():
     repo = repo_url.split('/')[-1]
 
     # Authenticate with GitHub, use token from workflow
+    print(os.environ.get('GITHUB_TOKEN'))
     github_token = os.environ.get('GITHUB_TOKEN')
 
     auth = Auth.Token(github_token)
 
     g = Github(auth = auth)
+
+    print("Authenticated as:", g.get_user().login)
 
     clone_repo(repo_url, repo_name)
     create_branch(repo_name, branch_name)
