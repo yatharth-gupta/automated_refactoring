@@ -97,7 +97,7 @@ def create_pull_request(repo_name, branch_name, pr_title, pr_body,g,owner_repo):
 # Find design smells in .java files
 def design_smells(repo_name, branch_name,g,owner_repo):
     pr_title = "Fix design smells"
-    GOOGLE_API_KEY="YOUR_KEY"
+    GOOGLE_API_KEY= os.environ.get('GOOGLE_API_KEY')
 
     genai.configure(api_key=GOOGLE_API_KEY)
     model = genai.GenerativeModel('gemini-1.0-pro-latest')
@@ -162,8 +162,8 @@ def main():
     owner = repo_url.split('/')[-2]
     repo = repo_url.split('/')[-1]
 
-    # Authenticate with GitHub
-    github_token = "YOUR_KEY"
+    # Authenticate with GitHub, use token from workflow
+    github_token = os.environ.get('GITHUB_TOKEN')
 
     auth = Auth.Token(github_token)
 
