@@ -1,0 +1,29 @@
+name: Weekly Design Smells Check
+
+on:
+  schedule:
+    - cron: '45 21 * * 5'  # Run every Sunday at midnight UTC
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'  # Specify your Python version
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Specify your requirements if any
+
+    - name: Run Python Script
+      run: python Bonus.py  # Specify the correct filename if different
+      env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}  # Replace with your Google API key
