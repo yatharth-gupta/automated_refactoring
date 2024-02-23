@@ -126,14 +126,14 @@ def design_smells(repo_name, branch_name,g,owner_repo):
             # print("first response:",response.text)
             # print()
 
-            prompt = f"Just List and explain design smells in the below code: \n {code}. \n Don't suggest any fixes, just list and explain the design smells."
+            prompt = f"Just List and explain design smells in the below code: \n {code}. \n Don't suggest any fixes. Define and calculate an appropriate code metric for the provided code."
             response = chat.send_message(prompt)
             # to_markdown(result.text)
             print("second response:",response.text)
             print()
 
             # fix the design smells
-            response = chat.send_message("Refactor the design smells you listed in the above code and provide the whole refactored code while preserving same functionalities as before, do not add or remove any functionality. The code given by you will go in production directly. So be responsible, the code should work and compile. Only provide code nothing else.")
+            response = chat.send_message("Refactor the design smells you listed in the above code and provide the whole refactored code while preserving same functionalities as before, do not add or remove any functionality. The code given by you will go in production directly. So be responsible, the code should work and compile. Now run and provide an appropriate code metric analysis on the refactored code vs the original code.")
             print("third response:",response.text)
 
             # code is in form ```java ... ```
