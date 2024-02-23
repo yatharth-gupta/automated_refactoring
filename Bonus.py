@@ -6,6 +6,7 @@ import shutil
 from github import Github
 from github import Auth
 import google.generativeai as genai
+import time
 
 context = """
 Abstraction
@@ -96,7 +97,7 @@ def create_pull_request(repo_name, branch_name, pr_title, pr_body,g,owner_repo):
 
 # Find design smells in .java files
 def design_smells(repo_name, branch_name,g,owner_repo):
-    pr_title = "Fix design smells"
+    pr_title = f"Fix design smells: {time.time()}"
     GOOGLE_API_KEY= os.environ.get('GOOGLE_API_KEY')
 
     genai.configure(api_key=GOOGLE_API_KEY)
@@ -163,14 +164,14 @@ def main():
     repo = repo_url.split('/')[-1]
 
     # Authenticate with GitHub, use token from workflow
-    print(os.environ.get('GITHUB_TOKEN'))
+    # print(os.environ.get('GITHUB_TOKEN'))
     github_token = os.environ.get('GITHUB_TOKEN')
 
     auth = Auth.Token(github_token)
 
     g = Github(auth = auth)
 
-    print("Authenticated as:", g.get_user().login)
+    # print("Authenticated as:", g.get_user().login)
 
     clone_repo(repo_url, repo_name)
     create_branch(repo_name, branch_name)
