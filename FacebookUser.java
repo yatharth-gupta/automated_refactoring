@@ -1,36 +1,70 @@
-package com.sismics.books.rest.model;
-
-/**
- * Facebook test user.
- * 
- * Management : https://developers.facebook.com/apps/387037158089019/roles?role=test%20users
- * 
- * @author jtremeaux
- */
+// FacebookUser.java
 public class FacebookUser {
-    public String id;
-    
-    public String email;
-    
-    public String fullName;
 
-    public String accessToken;
-    
+    private String id;
+    private String email;
+    private String fullName;
+    private String accessToken;
+
     public FacebookUser(String id, String email, String fullName, String accessToken) {
         this.id = id;
         this.email = email;
-        this.accessToken = accessToken;
         this.fullName = fullName;
+        this.accessToken = accessToken;
+    }
+
+    // Getters and setters with proper access control
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
+    }
+
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 }
 
+// FacebookUserService.java
+public class FacebookUserService {
 
-# fixed design smells
+    public FacebookUser createUser(String id, String email, String fullName, String accessToken) {
+        // Validation logic can be added here
 
-# fixed design smells
+        FacebookUser user = new FacebookUser(id, email, fullName, accessToken);
 
-// fixed design smells
+        // Save the user to the database or perform other necessary actions
 
-// fixed design smells
+        return user;
+    }
 
-// fixed design smells
+    public FacebookUser getUserById(String id) {
+        // Retrieve the user from the database or other data source
+
+        return null; // Replace with actual implementation
+    }
+
+    // Other methods for managing Facebook users
+}
