@@ -104,7 +104,7 @@ def create_pull_request(repo_name, branch_name, pr_title, pr_body,g,owner_repo):
 
 # Find design smells in .java files
 def design_smells(repo_name, branch_name,g,owner_repo):
-    pr_title = f"Fix design smells: {time.time()}"
+    pr_title = "Fix design smells"
     GOOGLE_API_KEY= os.environ.get('GOOGLE_API_KEY')
 
     genai.configure(api_key=GOOGLE_API_KEY)
