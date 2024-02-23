@@ -1,36 +1,57 @@
-package com.sismics.books.rest.model;
+// Social media user base class
+abstract class SocialMediaUser {
+    protected String id;
+    protected String email;
+    protected String fullName;
+    protected String accessToken;
 
-/**
- * Facebook test user.
- * 
- * Management : https://developers.facebook.com/apps/387037158089019/roles?role=test%20users
- * 
- * @author jtremeaux
- */
-public class FacebookUser {
-    public String id;
-    
-    public String email;
-    
-    public String fullName;
-
-    public String accessToken;
-    
-    public FacebookUser(String id, String email, String fullName, String accessToken) {
+    public SocialMediaUser(String id, String email, String fullName, String accessToken) {
         this.id = id;
         this.email = email;
-        this.accessToken = accessToken;
         this.fullName = fullName;
+        this.accessToken = accessToken;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getAccessToken() {
+        return accessToken;
     }
 }
 
+// Facebook user class
+public class FacebookUser extends SocialMediaUser {
 
-# fixed design smells
+    public FacebookUser(String id, String email, String fullName, String accessToken) {
+        super(id, email, fullName, accessToken);
+    }
 
-# fixed design smells
+    // Additional Facebook-specific methods or properties can be added here
+}
 
-// fixed design smells
+// Usage example
+public class Main {
 
-// fixed design smells
+    public static void main(String[] args) {
+        // Create a Facebook user object
+        FacebookUser user = new FacebookUser("123456789", "johndoe@example.com", "John Doe", "ABCDEFGHIJK");
 
-// fixed design smells
+        // Access the user's information
+        String id = user.getId();
+        String email = user.getEmail();
+        String fullName = user.getFullName();
+        String accessToken = user.getAccessToken();
+
+        // Do something with the user's information...
+    }
+}
